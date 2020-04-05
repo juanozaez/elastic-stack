@@ -16,8 +16,10 @@ dependencies {
     implementation("javax.inject:javax.inject:1")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("ch.qos.logback:logback-core:1.2.3")
-    implementation("org.slf4j:slf4j-api:1.7.0")
+
+    implementation("com.vlkan.log4j2:log4j2-logstash-layout:0.15")
+    implementation("org.apache.logging.log4j:log4j-core:2.11.1")
+
 
     testCompile("io.mockk:mockk:1.8.6")
     testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")

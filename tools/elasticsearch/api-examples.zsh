@@ -30,3 +30,7 @@ curl  --header "Content-Type: application/json" \
       --data '{"query": { "query_string": {  "fields" : ["level"], "query": "ERROR or INFO" } } }' \
       http://localhost:9200/home/_search | jq
 
+curl  --header "Content-Type: application/json" \
+      --request GET \
+      --data '{ "query": { "match": { "ip": "49.37.40.84" } } }' \
+      http://localhost:9200/home/_search | jq

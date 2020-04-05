@@ -7,7 +7,7 @@ services:
     container_name: elasticsearch
     ports: ['9200:9200']
     volumes:
-      - './var/elasticsearch:/usr/share/elasticsearch/data'
+      - './tools/elasticsearch/data:/usr/share/elasticsearch/data'
 
   logstash:
     image: docker.elastic.co/logstash/logstash:6.4.2
@@ -15,8 +15,8 @@ services:
     ports: ['9600:9600']
     depends_on: ['elasticsearch']
     volumes:
-      - './etc/logstash/pipeline:/usr/share/logstash/pipeline'
-      - './var/logs:/logs'
+      - './tools/logstash/pipeline:/usr/share/logstash/pipeline'
+      - './tools/logstash/logs:/logs'
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:6.4.2
