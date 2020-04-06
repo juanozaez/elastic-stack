@@ -16,16 +16,14 @@ services:
     depends_on: ['elasticsearch']
     volumes:
       - './tools/logstash/pipeline:/usr/share/logstash/pipeline'
-      - './tools/logstash/logs:/logs'
+      - './logs:/logs'
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:6.4.2
     user: root
     volumes:
-      - './var/filebeat/log/:/var/log/:ro'
-      - './var/filebeat/docker.sock:/var/run/docker.sock'
-      - './var/logs/:/var/lib/docker/containers/logs:ro'
-      - './etc/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml'
+      - './logs:/var/lib/docker/containers/logs:ro'
+      - './tools/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml'
     command: ["--strict.perms=false"]
 
   kibana:
